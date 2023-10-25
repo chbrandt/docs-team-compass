@@ -15,6 +15,30 @@ that documentation, which is the kind of *feature* of interest recognizing.
 The list of subprojects below was taken from [Jupyter's Governance webpage](https://jupyter.org/governance/list_of_subprojects.html)
 
 
+- - -
+
+## Template section
+
+- Organization:
+
+- Documentation:
+    - Site:
+    - Source:
+
+- Products:
+    - `<main repo>`
+    - "Subprojects"
+
+- Pinned repos:
+    - `other pinned repos`
+
+#### Features
+
++ feature/note to pay attention
+
+- - -
+
+
 ## JupyterLab
 
 - Organization: https://github.com/jupyterlab
@@ -24,7 +48,7 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 
 - Products:
-    - JupyterLab, the web user interface software/service.
+    - `jupyterlab`, the web user interface software/service.
     - Jupyter-Desktop, the desktop user interface software/service.
 
 - Pinned repos:
@@ -38,7 +62,7 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 * Unofficial extensions & tools: https://jupyterlab-contrib.github.io/
 
 
-### JupyterLab
+### `jupyterlab`
 
 - Repository: https://github.com/jupyterlab/jupyterlab
 
@@ -86,7 +110,27 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
     - Source: https://github.com/jupyterhub/binderhub/tree/main/docs
 
 
+-----
+
 ## Voilà
+
+- Organization:
+
+- Documentation:
+    - Site:
+    - Source:
+
+- Products:
+    - `<main repo>`
+    - "Subprojects"
+
+- Pinned repos:
+    - `other pinned repos`
+
+#### Features
+
++ feature/note to pay attention
+
 
 ## Jupyter Server
 
