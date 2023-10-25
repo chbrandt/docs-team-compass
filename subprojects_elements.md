@@ -14,35 +14,77 @@ that documentation, which is the kind of *feature* of interest recognizing.
 
 The list of subprojects below was taken from [Jupyter's Governance webpage](https://jupyter.org/governance/list_of_subprojects.html)
 
+
 ## JupyterLab
 
+- Organization: https://github.com/jupyterlab
 - Documentation:
-    - Site: https://jupyterlab.readthedocs.io/
+    - Site: https://jupyterlab.readthedocs.io/en/latest/
     - Source: https://github.com/jupyterlab/jupyterlab/tree/main/docs
 
-- Organization: https://github.com/jupyterlab
-    - Main repository:
-        - `jupyterlab`, the web user interface software/service.
-    - Other repositories
-        - `jupyter-desktop`, the desktop user interface software/service.
 
-### `jupyterlab`
+- Products:
+    - JupyterLab, the web user interface software/service.
+    - Jupyter-Desktop, the desktop user interface software/service.
 
-Repository: https://github.com/jupyterlab/jupyterlab
+- Pinned repos:
+    - `lumino`: https://github.com/jupyterlab/lumino
+    - `extension-template`: https://github.com/jupyterlab/extension-template
+    - `extension-examples`: https://github.com/jupyterlab/extension-examples
+    - `team-compass`: https://github.com/jupyterlab/team-compass
+
+#### Notes
+
+* Unofficial extensions & tools: https://jupyterlab-contrib.github.io/
 
 
-### `jupyter-desktop`
+### JupyterLab
 
-Repository: https://github.com/jupyterlab/jupyterlab-desktop
-Documentation: https://github.com/jupyterlab/jupyterlab-desktop/blob/master/user-guide.md
+- Repository: https://github.com/jupyterlab/jupyterlab
 
-## JupyterHub and Binder
 
-## Jupyterhub
+### Jupyter-Desktop
 
-## Binder
+- Repository: https://github.com/jupyterlab/jupyterlab-desktop
+- Documentation: https://github.com/jupyterlab/jupyterlab-desktop/blob/master/user-guide.md
 
-## BinderHub
+-----
+
+## JupyterHub
+
+- Organization: https://github.com/jupyterhub
+
+- Documentation:
+    - Site: https://jupyterhub.readthedocs.io/en/stable/
+    - Source: https://github.com/jupyterhub/jupyterhub/tree/main/docs
+
+- Products:
+    - `jupyterhub`
+    - BinderHub
+
+- Pinned repos:
+    - [`the-littlest-jupyterhub`](https://github.com/jupyterhub/the-littlest-jupyterhub)
+        - https://tljh.jupyter.org/en/latest/
+    - [`zero-to-jupyterhub-k8s`](https://github.com/jupyterhub/zero-to-jupyterhub-k8s)
+        - https://z2jh.jupyter.org/en/stable/
+
+#### Features
+
++ Structure follows the [Diátaxis Framework](https://diataxis.fr/explanation/).
+
+
+### `jupyterhub`
+
+- Repository: https://github.com/jupyterhub/jupyterhub
+
+### BinderHub
+
+- Repository: https://github.com/jupyterhub/binderhub
+
+- Documentation:
+    - Site: https://binderhub.readthedocs.io/en/latest/
+    - Source: https://github.com/jupyterhub/binderhub/tree/main/docs
+
 
 ## Voilà
 
