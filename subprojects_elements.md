@@ -36,6 +36,18 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 + feature/note to pay attention
 
+### `main repo`
+
+- Repository: `main repo URL`
+
+### Subproject-1
+
+- Repository: `subproject-1 repo URL`
+
+- Documentation:
+    - Site: URL
+    - Source: URL
+
 - - -
 
 
@@ -114,15 +126,44 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 ## Voilà
 
-- Organization:
+- Organization: https://github.com/voila-dashboards
+    - Site: https://voila-dashboards.github.io/
 
 - Documentation:
-    - Site:
-    - Source:
+    - Site: https://voila.readthedocs.io/en/stable/
+    - Source: https://github.com/voila-dashboards/voila/tree/main/docs
 
 - Products:
-    - `<main repo>`
-    - "Subprojects"
+    - `voila`
+
+- Pinned repos:
+    - `voila-vuetify`
+    - `voila-huggingface`
+    - `voila-gridstack`
+    - `voici`
+    - `voila-railway`
+
+#### Features
+
+
+### `voila`
+
+- Repository: https://github.com/voila-dashboards/voila
+
+-----
+
+## Jupyter Server
+
+- Organization: https://github.com/jupyter-server
+
+- Documentation:
+    - Site: https://jupyter-server.readthedocs.io/en/latest/
+    - Source: https://github.com/jupyter-server/jupyter_server/tree/main/docs
+
+- Products:
+    - `jupyter_server`
+    - Enterprise Gateway
+    - Kernel Gateway
 
 - Pinned repos:
     - `other pinned repos`
@@ -131,14 +172,27 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 + feature/note to pay attention
 
+### `jupyter_server`
 
-## Jupyter Server
+- Repository: https://github.com/jupyter-server/jupyter_server
 
-## Jupyter Server
+### Enterprise Gateway
 
-## Enterprise Gateway
+- Repository: https://github.com/jupyter-server/enterprise_gateway
+
+- Documentation:
+    - Site: https://jupyter-enterprise-gateway.readthedocs.io/en/latest/
+    - Source: https://github.com/jupyter-server/enterprise_gateway/tree/main/docs
 
 ## Kernel Gateway
+
+- Repository: https://github.com/jupyter-server/kernel_gateway
+
+- Documentation:
+    - Site: https://jupyter-kernel-gateway.readthedocs.io/en/latest/
+    - Source: https://github.com/jupyter-server/kernel_gateway/tree/main/docs
+
+- - -
 
 ## Jupyter Widgets
 
