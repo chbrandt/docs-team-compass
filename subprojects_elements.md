@@ -263,11 +263,29 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 ## Jupyter Kernels
 
-## jupyter-xeus
+- Organization: https://github.com/jupyter
 
-## IPykernel
+- Documentation:
+    - Site:
+    - Source:
 
-## IPython
+- Products:
+    - `kernels`
+
+
+#### Features
+
++ feature/note to pay attention
+
+### `kernels`
+
+- Repository: https://github.com/jupyter/kernels
+
+### jupyter-xeus
+
+### IPykernel
+
+### IPython
 
 ## Jupyter Foundations and Standards
 
