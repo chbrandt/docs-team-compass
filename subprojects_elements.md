@@ -113,6 +113,14 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 - Repository: https://github.com/jupyterhub/jupyterhub
 
+### Binder
+
+- Repository:
+
+- Documentation:
+    - Site:
+    - Source:
+
 ### BinderHub
 
 - Repository: https://github.com/jupyterhub/binderhub
@@ -120,7 +128,6 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 - Documentation:
     - Site: https://binderhub.readthedocs.io/en/latest/
     - Source: https://github.com/jupyterhub/binderhub/tree/main/docs
-
 
 -----
 
@@ -184,7 +191,7 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
     - Site: https://jupyter-enterprise-gateway.readthedocs.io/en/latest/
     - Source: https://github.com/jupyter-server/enterprise_gateway/tree/main/docs
 
-## Kernel Gateway
+### Kernel Gateway
 
 - Repository: https://github.com/jupyter-server/kernel_gateway
 
@@ -196,7 +203,63 @@ The list of subprojects below was taken from [Jupyter's Governance webpage](http
 
 ## Jupyter Widgets
 
+- Organization: https://github.com/jupyter-widgets
+
+- Documentation:
+    - Site: https://ipywidgets.readthedocs.io/en/stable/
+    - Source: https://github.com/jupyter-widgets/ipywidgets/tree/main/docs
+
+- Products:
+    - `ipywidgets`
+
+- Pinned repos:
+    - `tutorial`
+    - `team-compass`
+
+#### Features
+
++ feature/note to pay attention
+
+### `ipywidgets`
+
+- Repository: https://github.com/jupyter-widgets/ipywidgets
+
+
+- - -
+
 ## Jupyter Notebook
+
+- Organization: https://github.com/jupyter
+
+- Documentation:
+    - Site: https://jupyter-notebook.readthedocs.io/en/stable/
+    - Source: https://github.com/jupyter/notebook/tree/main/docs
+
+- Products:
+    - `notebook`
+    - Docker-Stacks
+
+- Pinned repos:
+    - `jupyter_client`
+    - `nbformat`
+
+#### Features
+
++ feature/note to pay attention
+
+### `notebook`
+
+- Repository: https://github.com/jupyter/notebook
+
+### Docker-Stacks
+
+- Repository: https://github.com/jupyter/docker-stacks
+
+- Documentation:
+    - Site: https://jupyter-docker-stacks.readthedocs.io/en/latest/
+    - Source: https://github.com/jupyter/docker-stacks/tree/main/docs
+
+- - -
 
 ## Jupyter Kernels
 
