@@ -6,10 +6,8 @@ on:
 
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: ./workflows/documentation_issues
-
+env:
+  WORKDIR: ./workflows/documentation_issues
 
 jobs:
   query-issues:
@@ -18,7 +16,7 @@ jobs:
       contents: write
 
     env:
-      OUTPUT_BRANCH: gh-pages
+      OUTPUT_BRANCH: data
 
     steps:
     - name: Checkout Repository
@@ -30,20 +28,21 @@ jobs:
         python-version: '3.x'
 
     - name: Install Dependencies
+      working-directory: $WORKDIR
       run: >
         pip install -r requirements.txt
 
     - name: Fetch Issues and Write them down
-      run: |
-        # cd workflows/documentation_issues
-        python fetch_issues.py repos.txt issues.csv \
-          --write-js issues.js
+      working-directory: $WORKDIR
+      run: >
+        python fetch_issues.py --input repos.txt --output issues.csv
 
     - name: Commit and Push if changes exist
       run: |
         git config --global user.name 'GitHub Action'
         git config --global user.email 'action@github.com'
         git checkout --orphan $OUTPUT_BRANCH
-        git add index.html issues.js
+        mv $WORKDIR/issues.csv .
+        git add issues.csv
         git diff --staged --quiet || git commit -m "Update documentation issues"
         git push --force origin $OUTPUT_BRANCH
