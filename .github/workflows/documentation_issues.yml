@@ -28,12 +28,12 @@ jobs:
         python-version: '3.x'
 
     - name: Install Dependencies
-      working-directory: $WORKDIR
+      working-directory: ${{ env.WORKDIR }}
       run: >
         pip install -r requirements.txt
 
     - name: Fetch Issues and Write them down
-      working-directory: $WORKDIR
+      working-directory: ${{ env.WORKDIR }}
       run: >
         python fetch_issues.py --input repos.txt --output issues.csv
 
