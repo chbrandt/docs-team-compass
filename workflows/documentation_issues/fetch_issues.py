@@ -13,10 +13,10 @@ The answer is written as a CSV table with fields defined in FIELDNAMES_CSV.
 """
 
 ## Repositories to query
-#DEFAULT_REPOS_FILE='repos.txt'
+DEFAULT_REPOS_FILE='repos.txt'
 #
 ## Output table filename
-#DEFAULT_ISSUES_FILE='issues.csv'
+DEFAULT_ISSUES_FILE='issues.csv'
 
 # Table columns
 FIELDNAMES = ['repo', 'number', 'title', 'url', 'date']
@@ -70,7 +70,7 @@ _CSV_ARGS = dict(
 )
 
 
-def write_issues(issues, filename, write_md=None, write_js=None):
+def write_issues(issues, filename):
     """
     Write 'issues' to CSV 'filename'.
 
@@ -79,55 +79,16 @@ def write_issues(issues, filename, write_md=None, write_js=None):
 
     Return list of filename(s) created.
     """
-    def _write_csv(issues, filename):
-        """Write CSV file"""
-        with open(filename, 'w') as file:
-            writer = csv.DictWriter(file, **_CSV_ARGS)
-            # Write header line (ie, fieldnames)
-            writer.writeheader()
-            for key,issue in issues.items():
-                issue = _unpack(key, issue)
-                writer.writerow(issue)
-        return filename
-
-    def _write_md(issues, filename):
-        """Write Markdown table file"""
-        with open(filename, 'w') as file:
-            file.write(f"|{'|'.join(FIELDNAMES)}|\n")
-            file.write(f"|{'|'.join(['---']*len(FIELDNAMES))}|\n")
-            for key,issue in issues.items():
-                issue = _unpack(key, issue)
-                file.write(f"|{'|'.join(issue[key] for key in FIELDNAMES)}|\n")
-        return filename
-
-    def _write_js(issues, filename):
-        """
-        Write Javascript file defining a 'data' object.
-        This is going to be used/read by 'index.html'.
-        """
-        # html = "<!doctype html><html><body><table>"
-        data = []
+    with open(filename, 'w') as file:
+        writer = csv.DictWriter(file, **_CSV_ARGS)
+        # Write header line (ie, fieldnames)
+        writer.writeheader()
         for key,issue in issues.items():
-            issue = _unpack(key, issue)
-            data.append(issue)
-        js = f"let data={data}"
-        with open(filename, 'w') as fp:
-            fp.write(js)
-        return filename
+            repo, number = key.split(':')
+            issue.update({'repo':repo, 'number':number})
+            writer.writerow(issue)
 
-    files_out = []
-    files_out.append(_write_csv(issues, filename))
-    if write_md:
-        files_out.append(_write_md(issues, write_md))
-    if write_js:
-        files_out.append(_write_js(issues, write_js))
-    return files_out
-
-
-def _unpack(key, issue):
-    repo, number = key.split(':')
-    issue.update({'repo':repo, 'number':number})
-    return issue
+    return filename
 
 
 def read_issues(filename:str) -> dict:
@@ -157,7 +118,6 @@ def read_issues(filename:str) -> dict:
                 'url' : 'url-B1'
             }
         }
-
     """
     issues = {}
     with open(filename) as file:
@@ -172,7 +132,7 @@ def read_issues(filename:str) -> dict:
     return issues
 
 
-def main(repos_file, issues_file, write_md, write_js):
+def main(repos_file, issues_file):
     """
     Write CSV file from 'documentation' issues from 'repos_source.txt' file
 
@@ -186,15 +146,6 @@ def main(repos_file, issues_file, write_md, write_js):
     ## Read list of repositories
     repos = read_repos(repos_file)
 
-    # ## Read "old-current" list of issues
-    # try:
-    #     current_issues = read_issues(issues_file)
-    # except FileNotFoundError as err:
-    #     current_issues = None
-
-    ## Ignore previous issues, we're not keeping track, we just want today's
-    current_issues = None
-
     ## Query repos for issues with 'label'
     issues = {}
     for repo in repos:
@@ -205,34 +156,21 @@ def main(repos_file, issues_file, write_md, write_js):
 
     print(f"{len(issues)} issues found.")
 
-    # if current_issues:
-    #     print("Diff:", set(issues).symmetric_difference(current_issues))
-
-    ## Merge old/new list of issues
-    all_issues = current_issues.copy() if current_issues else {}
-    all_issues.update(issues)
-
     ## Write "new-current" list of issues
-    files_out = write_issues(all_issues, issues_file, write_md, write_js)
-    print(f"Files created: {(', ').join(files_out)}.")
+    csv_file = write_issues(issues, issues_file)
+    print("Issues CSV table:", csv_file)
 
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", #default=DEFAULT_REPOS_FILE,
+    parser.add_argument("--input", default=DEFAULT_REPOS_FILE,
                         help="Filename with list of Jupyter repos")
-    parser.add_argument("output", #default=DEFAULT_ISSUES_FILE,
+    parser.add_argument("--output", default=DEFAULT_ISSUES_FILE,
                         help="Filename for issues table (CSV)")
-    parser.add_argument("--write-md", default=None,
-                        help="Write Markdown (table) version if given")
-    parser.add_argument("--write-js", default=None,
-                        help="Write JS file defining a 'data' object")
     args = parser.parse_args()
 
     main(
         repos_file=args.input,
-        issues_file=args.output,
-        write_md=args.write_md,
-        write_js=args.write_js
+        issues_file=args.output
         )
